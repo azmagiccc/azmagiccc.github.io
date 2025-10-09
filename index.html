@@ -19,7 +19,7 @@
             margin: 0;
         }
 
-        /* 图片容器通用样式：占满宽度、自适应高度、居中对齐 */
+        /* 图片容器通用样式 */
         .banner-img {
             width: 100%;
             height: auto;
@@ -27,9 +27,9 @@
             margin: 0 auto;
         }
 
-        /* 倒计时模块样式：匹配原图片的深色科技风 */
+        /* 倒计时模块样式 */
         .countdown-section {
-            background: #001f3f; /* 深海蓝，贴近币安品牌色 */
+            background: #001f3f;
             padding: 2rem 1rem;
             text-align: center;
             color: #fff;
@@ -37,67 +37,68 @@
 
         /* 倒计时标题：活动时间 */
         .countdown-title {
-            font-size: 1.2rem;
-            color: #ffd700; /* 金色，突出关键信息 */
+            font-size: 3.6rem; /* 原1.2rem ×3 */
+            color: #ffd700;
             margin-bottom: 1rem;
         }
 
         /* “距结束”文字 */
         .countdown-subtitle {
-            font-size: 1.5rem;
+            font-size: 4.5rem; /* 原1.5rem ×3 */
             color: #fff;
             margin-bottom: 1.5rem;
             font-weight: bold;
         }
 
-        /* 倒计时数字容器：Flex布局，数字与标签对齐 */
+        /* 倒计时数字容器 */
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
+            gap: 2.4rem; /* 原1.2rem ×3 */
             flex-wrap: wrap;
         }
 
-        /* 单个倒计时单元：数字+标签 */
+        /* 单个倒计时单元 */
         .countdown-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* 倒计时数字：大字体、粗体，突出核心信息 */
+        /* 倒计时数字 */
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: 7.5rem; /* 原2.5rem ×3 */
             font-weight: bold;
-            color: #ffd700; /* 金色，与原图片风格一致 */
+            color: #ffd700;
             background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            min-width: 80px;
+            padding: 1rem 2rem; /* 原0.5rem ×3 */
+            border-radius: 12px; /* 原8px ×1.5 */
+            min-width: 160px; /* 原80px ×2 */
         }
 
-        /* 倒计时标签：小字体、浅灰色 */
+        /* 倒计时标签 */
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: 2.7rem; /* 原0.9rem ×3 */
             color: #ccc;
-            margin-top: 0.5rem;
+            margin-top: 1rem; /* 原0.5rem ×2 */
         }
 
-        /* 移动端适配：小屏幕调整字体与间距 */
+        /* 移动端适配 */
         @media (max-width: 768px) {
             .countdown-title {
-                font-size: 1rem;
+                font-size: 3rem; /* 原1rem ×3 */
             }
             .countdown-subtitle {
-                font-size: 1.2rem;
+                font-size: 3.6rem; /* 原1.2rem ×3 */
             }
             .countdown-number {
-                font-size: 1.8rem;
-                min-width: 60px;
-                padding: 0.4rem 0.8rem;
+                font-size: 5.4rem; /* 原1.8rem ×3 */
+                padding: 0.8rem 1.6rem; /* 原0.4rem ×2 */
+                min-width: 120px; /* 原60px ×2 */
             }
             .countdown-label {
-                font-size: 0.8rem;
+                font-size: 2.4rem; /* 原0.8rem ×3 */
+                margin-top: 0.8rem; /* 原0.4rem ×2 */
             }
         }
     </style>
@@ -134,43 +135,33 @@
     <img src="images/IHP2.jpg" alt="IHP交易大赛奖励规则与二维码" class="banner-img">
 
     <script>
-        // --------------------------
-        // 倒计时核心配置（活动结束时间：2025-10-30 23:59:59 UTC+8）
-        // --------------------------
         const endDate = new Date('2025-10-30T23:59:59+08:00');
-        let countdownTimer;
+        let timer;
 
-        // --------------------------
-        // 倒计时逻辑：计算并更新显示
-        // --------------------------
         function updateCountdown() {
             const now = new Date();
             const timeDiff = endDate - now;
 
-            // 活动已结束：隐藏倒计时，显示结束提示
             if (timeDiff <= 0) {
-                clearInterval(countdownTimer);
+                clearInterval(timer);
                 document.querySelector('.countdown-subtitle').textContent = '活动已结束';
                 document.querySelector('.countdown-container').style.display = 'none';
                 return;
             }
 
-            // 计算各时间单位
             const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-            // 更新页面显示（带前导零）
             document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
 
-        // 初始化：立即执行一次，然后每秒更新
         updateCountdown();
-        countdownTimer = setInterval(updateCountdown, 1000);
+        timer = setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
