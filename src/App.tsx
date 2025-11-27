@@ -689,7 +689,7 @@ function PicWePage() {
             <article key={clip.filename} className="video-card solid">
               <div className="video-wrapper">
                 <video controls preload="metadata">
-                  <source src={`/${clip.filename}`} type="video/mp4" />
+                  <source src={`${clip.filename}`} type="video/mp4" />
                   您的浏览器暂不支持 video 标签。
                 </video>
               </div>
