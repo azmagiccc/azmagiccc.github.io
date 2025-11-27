@@ -609,8 +609,8 @@ function PicWePage() {
     <div className="picwe-page">
       <header className="picwe-hero card-surface">
         <div className="hero-orb" />
-        <p className="eyebrow">PicWe · 全链 RWA 操作系统</p>
-        <h1>AI 代理驱动的 Social RWA · WEUSD 全链结算</h1>
+        <p className="eyebrow">PicWe ·全球最大的第三代金融结算层</p>
+        <h1>链上银联 · 链上SWIFT · 链上纳斯达克</h1>
         <p className="hero-lead">
           让每个用户用对话式 AI 操作跨链流动性。PicWe 将 RWA、DEX、结算稳定币 WEUSD 和社区协同汇集，
           以更低门槛把真实资产带上链。
@@ -802,18 +802,10 @@ function App() {
         <div className="brand">
           <span className="brand-dot" />
           <div>
-            <p className="eyebrow">PicWe RWA资料库</p>
-            <strong>Hydropower · PicWe</strong>
+            <p className="eyebrow"><strong>PicWe RWA 资料库</strong></p>
           </div>
         </div>
         <div className="nav-tabs">
-          <button
-            type="button"
-            className={`nav-tab ${activePage === "hydropower" ? "active" : ""}`}
-            onClick={() => setActivePage("hydropower")}
-          >
-            水电站 RWA
-          </button>
           <button
             type="button"
             className={`nav-tab ${activePage === "picwe" ? "active" : ""}`}
@@ -821,14 +813,13 @@ function App() {
           >
             PicWe
           </button>
-        </div>
-        <div className="nav-actions">
-          <a className="ghost-link" href="https://www.picwe.org" target="_blank" rel="noreferrer">
-            官网
-          </a>
-          <a className="ghost-link" href="https://x.com/PicWeGlobal" target="_blank" rel="noreferrer">
-            Twitter
-          </a>
+          <button
+            type="button"
+            className={`nav-tab ${activePage === "hydropower" ? "active" : ""}`}
+            onClick={() => setActivePage("hydropower")}
+          >
+            水电站 RWA
+          </button>
         </div>
       </nav>
 
