@@ -802,7 +802,7 @@ function App() {
         <div className="brand">
           <span className="brand-dot" />
           <div>
-            <p className="eyebrow">PicWe RWA</p>
+            <p className="eyebrow">PicWe RWA资料库</p>
             <strong>Hydropower · PicWe</strong>
           </div>
         </div>
